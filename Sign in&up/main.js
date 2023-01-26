@@ -28,7 +28,7 @@ async function creation_compte(){
 async function connection(){
 	var email = document.getElementById("inputEmail1").value;
     var password = document.getElementById("password1").value;
-	fetch('https://hms12432.hostmyservers.me/api/v1/verification/', {
+	fetch('http://hms12432.hostmyservers.me/api/v1/verification/', {
 		method: 'GET',
 		headers: {
 			email:email,
