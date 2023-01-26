@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="cd-header">
+      <div class="header-wrapper">
+        <div class="logo-wrap">
+          <a href="#" class="hover-target"><span>What'</span>sUpp</a>
+        </div>
+        <div class="nav-but-wrap">
+          <div class="menu-icon hover-target">
+            <span class="menu-icon__line menu-icon__line-left"></span>
+            <span class="menu-icon__line"></span>
+            <span class="menu-icon__line menu-icon__line-right"></span>
+          </div>					
+        </div>					
+      </div>				
+    </header>
+    <div class="nav">
+      <div class="nav__content">
+        <ul class="nav__list">
+                    <li class="nav__list-item active-nav"><a class="hover-target">Acceuil</a></li>
+            <li class="nav__list-item"><a class="hover-target">Profile</a></li>
+            <li class="nav__list-item"><a class="hover-target" href="../conversation/conversation.html">Conversation</a></li>
+            <li class="nav__list-item"><a class="hover-target" onclick="logout()">Log out</a></li>
+        </ul>
+      </div>
+    </div>	   
+    <div class='cursor' id="cursor"></div>
+    <div class='cursor2' id="cursor2"></div>
+    <div class='cursor3' id="cursor3"></div>
+
+
+    <div class="section">
+      <div class="card-3d-wrap mx-auto">
+        <h1 id="titre" class="titre-conv"></h1>
+          <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="container">
+                    <div class="message-wrap">
+                        <div id="message-container"></div>
+                    </div>
+                    <div class="demo-flex-spacer"></div>
+                    <div class="webflow-style-input">
+                        <input name="message" class="" type="text" placeholder="Ecrivez un message..."></input>
+                        <button type="submit" onclick="addMessage()" class="bouton_envoyer">></button>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
