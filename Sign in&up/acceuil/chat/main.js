@@ -158,4 +158,5 @@ function check_page(){
         window.location.href = '../../index.html'
     }
 }
+
 check_page()
