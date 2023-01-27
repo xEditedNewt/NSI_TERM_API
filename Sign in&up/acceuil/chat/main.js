@@ -43,41 +43,8 @@ function setpage(){
         message.style.display = "block";
         message.innerHTML = data.message;
     })
-    fetch("http://hms12432.hostmyservers.me/api/v1/messages/", {
-		method: 'GET',
-		headers: {
-            id_conv:id_page
-		}
-	  }).then(res => res.json()).then(data =>{
-        console.log(data)
-        const messageContainer = document.querySelector('#message-container');
-        const newMessage = document.createElement('div');
-        data.data.forEach(async (element) => {
-            if(element.user == username){
-                const newMessage = document.createElement('div');
-                newMessage.innerHTML = `<div class="bubbleWrapper">
-                <div class="inlineContainer own">
-                    <div class="ownBubble own">
-                        ${element.message}
-                    </div>
-                </div><span class="own">${element.createdDate}</span>
-            </div>`
-                await messageContainer.appendChild(newMessage);
-            }
-            else{
-                const newMessage = document.createElement('div');
-                newMessage.innerHTML = `<div class="bubbleWrapper">
-                <div class="inlineContainer">
-                    <div class="otherBubble other">
-                        ${element.message}
-                    </div>
-                </div><span class="other">${element.createdDate}</span>
-            </div>`
-                await messageContainer.appendChild(newMessage);
-            }
-        });
-
-    })
+    set_message()
+    setInterval(set_message, 1000);
 }
 setpage()
 
@@ -160,3 +127,46 @@ function check_page(){
 }
 
 check_page()
+
+async function set_message(){
+    console.log("testtt")
+    var id = localStorage.getItem("id");
+    var username = localStorage.getItem("username")
+    let urlParams = new URLSearchParams(window.location.search);
+    let id_page = urlParams.get('id');
+    fetch("http://hms12432.hostmyservers.me/api/v1/messages/", {
+		method: 'GET',
+		headers: {
+            id_conv:id_page
+		}
+	  }).then(res => res.json()).then(data =>{
+        console.log(data)
+        const messageContainer = document.querySelector('#message-container');
+        messageContainer.innerHTML = ' '
+        const newMessage = document.createElement('div');
+        data.data.forEach(async (element) => {
+            if(element.user == username){
+                const newMessage = document.createElement('div');
+                newMessage.innerHTML = `<div class="bubbleWrapper">
+                <div class="inlineContainer own">
+                    <div class="ownBubble own">
+                        ${element.message}
+                    </div>
+                </div><span class="own">${element.createdDate}</span>
+            </div>`
+                await messageContainer.appendChild(newMessage);
+            }
+            else{
+                const newMessage = document.createElement('div');
+                newMessage.innerHTML = `<div class="bubbleWrapper">
+                <div class="inlineContainer">
+                    <div class="otherBubble other">
+                        ${element.message}
+                    </div>
+                </div><span class="other">${element.createdDate}</span>
+            </div>`
+                await messageContainer.appendChild(newMessage);
+            }
+        });
+    })
+}
