@@ -81,6 +81,11 @@ function setpage(){
 }
 setpage()
 
+document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        addMessage()
+    }
+  });
 
 async function addMessage() {
     const message_i = document.querySelector('input[name="message"]');
@@ -90,30 +95,41 @@ async function addMessage() {
     const messageContainer = document.querySelector('#message-container');
     const newMessage = document.createElement('div');
 
-    var id = localStorage.getItem("id");
-    var username = localStorage.getItem("username")
-    let urlParams = new URLSearchParams(window.location.search);
-    let id_page = urlParams.get('id');
-    fetch("http://hms12432.hostmyservers.me/api/v1/new-message/", {
-        method: 'POST',
-        headers: {
-            id:id,
-            id_conv:id_page,
-            message:message.toString()
-        }
-      }).then(res => res.json()).then(async (data) =>{
-        console.log(data.message)
-    })
-    let date = new Date();
-    let formattedDate = date.getHours() + 'h-' + date.getMinutes() + 'm-' + date.getSeconds() + "s";
-    newMessage.innerHTML = `<div class="bubbleWrapper">
-    <div class="inlineContainer own">
-        <div class="ownBubble own">
-            ${message}
-        </div>
-    </div><span class="own">${formattedDate}</span>
-</div>`
-    await messageContainer.appendChild(newMessage);
+    if (message == null) {
+        
+    }else {
+
+        var id = localStorage.getItem("id");
+        var username = localStorage.getItem("username")
+        let urlParams = new URLSearchParams(window.location.search);
+        let id_page = urlParams.get('id');
+        fetch("http://hms12432.hostmyservers.me/api/v1/new-message/", {
+            method: 'POST',
+            headers: {
+                id:id,
+                id_conv:id_page,
+                message:message.toString()
+            }
+          }).then(res => res.json()).then(async (data) =>{
+            console.log(data.message)
+            let date = new Date();
+            let formattedDate = date.getHours() + 'h-' + date.getMinutes() + 'm-' + date.getSeconds() + "s";
+            newMessage.innerHTML = `<div class="bubbleWrapper">
+            <div class="inlineContainer own">
+                <div class="ownBubble own">
+                    ${message}
+                </div>
+            </div><span class="own">${formattedDate}</span>
+        </div>`
+            if (data.message == "Les données fournies sont incorrectes.") {
+    
+            }else{
+                await messageContainer.appendChild(newMessage);
+            }
+        })
+
+    }
+
 }
 
 function getEmailR() {
