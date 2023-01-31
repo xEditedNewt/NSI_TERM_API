@@ -624,12 +624,12 @@ table.table-conversation td {
   .form-field {
     display: block;
     width: 100%;
-    padding: 8px 16px;
-    line-height: 25px;
+    padding: 35px 100px;
+    line-height: 18px;
     font-size: 14px;
     font-weight: 500;
     font-family: inherit;
-    border-radius: 6px;
+    border-radius: 60px;
     -webkit-appearance: none;
     color: var(--input-color);
     border: 1px solid var(--input-border);
