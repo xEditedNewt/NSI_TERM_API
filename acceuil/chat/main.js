@@ -23,7 +23,12 @@ var id = localStorage.getItem("id");
             
 })(jQuery); 
 
+function scrollDown() {
+    var myDiv = document.getElementById("message-front");
+    myDiv.scrollTop = myDiv.scrollHeight;
+}
 
+setInterval(scrollDown, 25);
 
 function setpage(){
     var myDiv = document.getElementById("message-front");
