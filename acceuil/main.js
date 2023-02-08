@@ -60,7 +60,6 @@ async function verification_conversation(){
         if (data.message == ' '){
             console.log("test")
             table.style.display = "block",
-            table.style.text-align = "center";
             table_conversation(data.data)
         }
         else{

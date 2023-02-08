@@ -26,6 +26,8 @@ var id = localStorage.getItem("id");
 
 
 function setpage(){
+    var myDiv = document.getElementById("message-front");
+    myDiv.scrollTop = myDiv.scrollHeight;
     var id = localStorage.getItem("id");
     var username = localStorage.getItem("username")
     let urlParams = new URLSearchParams(window.location.search);
@@ -53,6 +55,7 @@ document.addEventListener("keyup", function(event) {
   });
 
 async function addMessage() {
+    
     const message_i = document.querySelector('input[name="message"]');
     message = message_i.value 
     message_i.value = ''
@@ -125,7 +128,10 @@ function check_page(){
 check_page()
 
 async function set_message(){
-    console.log("testtt")
+    
+    var myDiv = document.getElementById("message-front");
+    myDiv.scrollTop = myDiv.scrollHeight;
+
     var id = localStorage.getItem("id");
     var username = localStorage.getItem("username")
     let urlParams = new URLSearchParams(window.location.search);
