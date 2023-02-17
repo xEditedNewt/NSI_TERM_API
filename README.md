@@ -1,6 +1,6 @@
 <br />
 
-  <h3 align="center">README Projet Tiens ton école</h3>
+  <h3 align="center">README Projet WHAT'S UPP</h3>
 </div>
 
 <!-- Sommaire -->
