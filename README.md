@@ -22,7 +22,7 @@ WHAT'S UPP
 
 - aller sur le site :
 ``` bash
-What'sUpp.store
+what'-sUpp.store
 ```
 et creer vous un compte a l'aide d'une adresse mail, d'un pseudo et d'un mot de passe.
 
